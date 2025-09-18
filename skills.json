@@ -1,54 +1,95 @@
-[
-    {
-        "name": "Canva",
-        "icon": "https://img.icons8.com/fluency/48/000000/canva.png"
-    },
-    {
-        "name": "Youtube",
-        "icon": "https://img.icons8.com/fluency/48/000000/youtube.png"
-    },
-    {
-        "name": "VN",
-        "icon": "https://img.icons8.com/?size=100&id=B8HxnSBBGpvx&format=png&color=000000"
-    },
-    {
-        "name": "Firebase",
-        "icon": "https://img.icons8.com/color/48/000000/firebase.png"
-    },
-    {
-        "name": "Android",
-        "icon": "https://img.icons8.com/fluency/48/000000/android-os.png"
-    },
-    {
-        "name": "HTML5",
-        "icon": "https://img.icons8.com/color/48/000000/html-5--v1.png"
-    },
-    {
-        "name": "JavaScript",
-        "icon": "https://img.icons8.com/color/48/000000/javascript--v1.png"
-    },
-    {
-        "name": "Heroku",
-        "icon": "https://img.icons8.com/color/48/000000/heroku.png"
-    },
-    {
-        "name": "Netlify",
-        "icon": "https://img.icons8.com/external-tal-revivo-shadow-tal-revivo/48/000000/external-netlify-a-cloud-computing-company-that-offers-hosting-and-serverless-backend-services-for-static-websites-logo-shadow-tal-revivo.png"
-    },
-    {
-        "name": "GitHub",
-        "icon": "https://img.icons8.com/glyph-neue/48/ffffff/github.png"
-    },
-    {
-        "name": "Vercel",
-        "icon": "https://img.icons8.com/?size=100&id=2xFS7aynbwiR&format=png&color=000000"
-    },
-    {
-        "name": "Wix",
-        "icon": "https://img.icons8.com/?size=100&id=cQfKnWABsKk9&format=png&color=000000"
-    },
-    {
-        "name": "Odoo",
-        "icon": "https://odoocdn.com/openerp_website/static/src/img/assets/png/odoo_logo.png"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills Icons</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #1e1e2f;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
-]
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 20px;
+      max-width: 800px;
+    }
+
+    .skill-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px;
+      background: #2c2c3e;
+      border-radius: 12px;
+      transition: transform 0.2s;
+    }
+
+    .skill-card:hover {
+      transform: scale(1.05);
+    }
+
+    .skill-icon {
+      width: 48px;     /* Fix size */
+      height: 48px;
+      object-fit: contain;
+      margin-bottom: 8px;
+    }
+
+    .skill-name {
+      font-size: 14px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="skills-grid" id="skills-container"></div>
+
+  <script>
+    const skills = [
+      { "name": "Canva", "icon": "https://img.icons8.com/fluency/48/000000/canva.png" },
+      { "name": "Youtube", "icon": "https://img.icons8.com/fluency/48/000000/youtube.png" },
+      { "name": "VN", "icon": "https://img.icons8.com/?size=100&id=B8HxnSBBGpvx&format=png&color=000000" },
+      { "name": "Firebase", "icon": "https://img.icons8.com/color/48/000000/firebase.png" },
+      { "name": "Android", "icon": "https://img.icons8.com/fluency/48/000000/android-os.png" },
+      { "name": "HTML5", "icon": "https://img.icons8.com/color/48/000000/html-5--v1.png" },
+      { "name": "JavaScript", "icon": "https://img.icons8.com/color/48/000000/javascript--v1.png" },
+      { "name": "Heroku", "icon": "https://img.icons8.com/color/48/000000/heroku.png" },
+      { "name": "Netlify", "icon": "https://img.icons8.com/external-tal-revivo-shadow-tal-revivo/48/000000/external-netlify-a-cloud-computing-company-that-offers-hosting-and-serverless-backend-services-for-static-websites-logo-shadow-tal-revivo.png" },
+      { "name": "GitHub", "icon": "https://img.icons8.com/glyph-neue/48/ffffff/github.png" },
+      { "name": "Vercel", "icon": "https://img.icons8.com/?size=100&id=2xFS7aynbwiR&format=png&color=000000" },
+      { "name": "Wix", "icon": "https://img.icons8.com/?size=100&id=cQfKnWABsKk9&format=png&color=000000" },
+      { "name": "Odoo", "icon": "https://odoocdn.com/openerp_website/static/src/img/assets/png/odoo_logo.png" }
+    ];
+
+    const container = document.getElementById("skills-container");
+
+    skills.forEach(skill => {
+      const card = document.createElement("div");
+      card.className = "skill-card";
+
+      const img = document.createElement("img");
+      img.src = skill.icon;
+      img.alt = skill.name;
+      img.className = "skill-icon";
+
+      const name = document.createElement("div");
+      name.className = "skill-name";
+      name.textContent = skill.name;
+
+      card.appendChild(img);
+      card.appendChild(name);
+      container.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>
