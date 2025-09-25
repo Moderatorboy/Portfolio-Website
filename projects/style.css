@@ -340,21 +340,19 @@ header .navbar ul li a:hover{
 
 .skills-container {
   display: flex;
-  gap: 25px;
+  flex-wrap: wrap;       /* row break allow karega */
+  justify-content: center;
+  gap: 25px;             /* cards ke beech gap */
   margin-top: 30px;
-  overflow-x: auto;   /* horizontal scroll enable */
-  white-space: nowrap;
-  padding-bottom: 10px;
-  scroll-behavior: smooth;
 }
 
 .skill-card {
-  flex: 0 0 auto;    /* har card apni jagah fix rahe */
+  flex: 0 0 180px;       /* har card approx 180px wide */
   background: white;
-  padding: 15px 25px;
-  border-radius: 12px;
+  padding: 20px;
+  border-radius: 14px;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   transition: transform 0.3s;
 }
 
@@ -363,16 +361,38 @@ header .navbar ul li a:hover{
 }
 
 .skill-card img {
-  width: 80px;   /* icon bada */
+  width: 80px;           /* icon bada */
   height: 80px;
   object-fit: contain;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .skill-card p {
   margin: 0;
-  font-size: 1.4rem;
+  font-size: 1.4rem;     /* text ab bada ho gaya */
   font-weight: 600;
+  color: #222;
+}
+
+/* 📱 Mobile ke liye */
+@media (max-width: 768px) {
+  .skills-container {
+    flex-direction: column;  /* ek ke neeche ek */
+    align-items: center;
+  }
+
+  .skill-card {
+    width: 90%;   /* poora width le */
+  }
+
+  .skill-card img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .skill-card p {
+    font-size: 1.2rem;
+  }
 }
 
 @media screen and (max-width: 450px) {
@@ -415,5 +435,6 @@ header .navbar ul li a:hover{
 }
 
 /* scroll top ends */
+
 
 
