@@ -361,8 +361,8 @@ header .navbar ul li a:hover{
 }
 
 .skill-card img {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   margin-bottom: 1rem;
 }
 
@@ -406,3 +406,4 @@ header .navbar ul li a:hover{
 }
 
 /* scroll top ends */
+
