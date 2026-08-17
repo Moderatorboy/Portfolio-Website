@@ -461,13 +461,73 @@ header .navbar ul li a:hover {
 /* skills section starts */
 .skills {
   min-height: 90vh;
-  background: linear-gradient(to bottom, #57059e, #4a00e0);
+  background: linear-gradient(135deg, #080b1f 0%, #171246 48%, #071629 100%);
 }
 .skills h2 {
   color: #fff;
 }
 .skills .heading span {
   color: rgb(255, 230, 0);
+}
+.skills .skills-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  width: 90%;
+  max-width: 1100px;
+  margin: 2rem auto 0;
+  padding: 2.5rem;
+  background: rgba(5, 8, 28, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.2rem;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.28);
+}
+.skills .skill-category h3 {
+  color: rgb(255, 230, 0);
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+.skills .skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: 1.6rem;
+}
+.skills .skill-card {
+  min-height: 12rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  background: rgba(10, 15, 45, 0.86);
+  box-shadow: 0 0.8rem 2rem rgba(0, 0, 0, 0.24);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+.skills .skill-card:hover {
+  transform: translateY(-0.4rem);
+  box-shadow: 0 1rem 2.4rem rgba(255, 230, 0, 0.18), 0 0 1.8rem rgba(72, 149, 239, 0.22);
+  background-color: rgba(14, 22, 62, 0.95);
+}
+.skills .skill-card img {
+  width: 5rem;
+  height: 5rem;
+  object-fit: contain;
+}
+.skills .skill-card i {
+  color: #5ddcff;
+  font-size: 5rem;
+  line-height: 1;
+}
+.skills .skill-card p {
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: 500;
+  font-family: "Poppins";
+  text-align: center;
 }
 .skills .container {
   background: rgba(0, 0, 22, 0.4);
@@ -514,6 +574,27 @@ header .navbar ul li a:hover {
 }
 /* skills media queries starts*/
 @media screen and (max-width: 600px) {
+  .skills .skills-container {
+    gap: 2rem;
+    width: 100%;
+    margin-top: 5px;
+    padding: 2rem 1rem;
+  }
+  .skills .skill-category h3 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+  .skills .skill-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  .skills .skill-card {
+    min-height: 10rem;
+    padding: 1rem;
+  }
+  .skills .skill-card p {
+    font-size: 1.5rem;
+  }
   .skills .container {
     padding: 0;
     margin: 0;
@@ -555,6 +636,7 @@ header .navbar ul li a:hover {
   display: flex;
   flex-direction: row;
   width: 80%;
+  height: 20rem;
   border-radius: 0.5rem;
   box-shadow: 0.2rem 0.5rem 1rem rgba(0, 0, 0, 0.2);
   text-align: center;
@@ -569,14 +651,18 @@ header .navbar ul li a:hover {
   box-shadow: 1rem 0.5rem 1.2rem rgba(0, 0, 0, 0.3);
 }
 .education .box-container .box .image {
-  flex: 1 1 20rem;
-  width: 100%;
+  flex: 0 0 28rem;
+  width: 28rem;
+  height: 100%;
+  overflow: hidden;
 }
 .education .box-container .box img {
   object-fit: cover;
+  object-position: center center;
   position: relative;
   width: 100%;
   height: 100%;
+  display: block;
 }
 .education .box-container .box .content {
   position: relative;
@@ -613,9 +699,11 @@ header .navbar ul li a:hover {
   .education .box-container .box {
     flex-direction: column;
     width: 100%;
+    height: auto;
   }
   .education .box-container .box .image {
     width: 100%;
+    flex: none;
     height: 25rem;
   }
   .education .box-container .box img {
@@ -656,6 +744,161 @@ header .navbar ul li a:hover {
   flex-wrap: wrap;
   gap: 1.5rem;
   margin: 2rem;
+  justify-content: center;
+}
+.work .project-card {
+  width: min(100%, 95rem);
+  display: flex;
+  align-items: stretch;
+  gap: 2rem;
+  padding: 2.5rem;
+  border-radius: 0.8rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.28);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.work .project-card:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: 0 1.5rem 3.5rem rgba(255, 230, 0, 0.12), 0 1rem 3rem rgba(0, 0, 0, 0.35);
+}
+.work .project-icon {
+  min-width: 12rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.8rem;
+  background: linear-gradient(135deg, #229ed9, #0b57d0);
+}
+.work .project-icon i {
+  color: #fff;
+  font-size: 6rem;
+}
+.work .project-content {
+  flex: 1;
+}
+.work .project-content h3 {
+  color: #fff;
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+.work .project-content p {
+  color: #e8e8ff;
+  font-size: 1.6rem;
+  line-height: 1.6;
+}
+.work .feature-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+  gap: 1rem;
+  margin-top: 1.8rem;
+}
+.work .feature-item {
+  padding: 1.3rem;
+  border-radius: 0.6rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.work .feature-item h4 {
+  color: #ffd900;
+  font-size: 1.5rem;
+  margin-bottom: 0.6rem;
+}
+.work .feature-item p {
+  font-size: 1.35rem;
+  line-height: 1.5;
+}
+.work .feature-item span {
+  display: inline-block;
+  color: #5ddcff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 0.8rem;
+}
+.work .project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.work .project-actions .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  border: 0;
+  cursor: pointer;
+  padding: 1.2rem 1.8rem;
+  border-radius: 0.5rem;
+  color: #fff;
+  background: #2506ad;
+  font-size: 1.5rem;
+  font-weight: 700;
+  transition: 0.25s ease;
+}
+.work .project-actions .btn:hover {
+  background: #ffd900;
+  color: #020133;
+}
+.bot-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: rgba(2, 1, 51, 0.78);
+  z-index: 10000;
+}
+.bot-modal.active {
+  display: flex;
+}
+.bot-modal-content {
+  width: min(100%, 82rem);
+  max-height: 86vh;
+  overflow-y: auto;
+  position: relative;
+  padding: 2.5rem;
+  border-radius: 0.8rem;
+  background: #080b1f;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.45);
+}
+.bot-modal-content h2 {
+  color: #ffd900;
+  font-size: 2.6rem;
+  margin-bottom: 1.8rem;
+}
+.bot-modal-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  width: 3.6rem;
+  height: 3.6rem;
+  border: 0;
+  border-radius: 50%;
+  color: #020133;
+  background: #ffd900;
+  cursor: pointer;
+}
+.bot-command-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+  gap: 1.4rem;
+}
+.bot-command-grid div {
+  padding: 1.4rem;
+  border-radius: 0.6rem;
+  background: rgba(255, 255, 255, 0.07);
+}
+.bot-command-grid h3 {
+  color: #5ddcff;
+  font-size: 1.7rem;
+  margin-bottom: 1rem;
+}
+.bot-command-grid p {
+  color: #fff;
+  font-size: 1.35rem;
+  line-height: 1.6;
 }
 .work .box-container .box {
   flex: 1 1 30rem;
@@ -757,9 +1000,32 @@ header .navbar ul li a:hover {
 .work .viewall .btn:hover i {
   transform: translateX(5px);
 }
+@media screen and (max-width: 600px) {
+  .work .box-container {
+    margin: 1.5rem 1rem;
+  }
+  .work .project-card {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+  .work .project-icon {
+    min-width: 0;
+    min-height: 10rem;
+  }
+  .work .project-content h3 {
+    font-size: 2.2rem;
+  }
+  .work .project-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
 /* work section ends */
 
 /* experience section starts */
+.experience .heading span {
+  color: rgb(115, 3, 167);
+}
 .experience .timeline {
   position: relative;
   max-width: 1200px;
@@ -784,7 +1050,7 @@ header .navbar ul li a:hover {
 }
 /*circles on timeline*/
 .experience .container::after {
-  content: "\f0b1";
+  content: "\f19d";
   position: absolute;
   width: 25px;
   height: 25px;
@@ -836,9 +1102,10 @@ header .navbar ul li a:hover {
   left: -16px;
 }
 .experience .content {
-  background-color: #f68c09;
+  background: linear-gradient(135deg, #f68c09, #ffd900);
   position: relative;
   border-radius: 6px;
+  box-shadow: 0 0.6rem 1.8rem rgba(0, 0, 0, 0.16);
 }
 .experience .content .tag {
   font-size: 1.3rem;
